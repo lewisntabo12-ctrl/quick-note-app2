@@ -51,7 +51,7 @@
     Queue: A message broker that holds background tasks temporarily.
 
     Worker: Processes background tasks from the queue (like sending email summaries or heavy data exports) without making the user wait.
-    
+
 Request Flows
 
     GET /notes Flow:
@@ -64,4 +64,4 @@ Trade-offs & Single Points of Failure
 
     Eventual Consistency vs. High Availability: By using a Primary DB and a Read Replica, we remove the database as a bottleneck for reads. The trade-off is eventual consistency; a note created on the Primary might take a few milliseconds to sync to the Replica.
 
-    Avoiding Single Points of Failure (SPOF): By utilizing two or more App Servers behind a Load Balancer, we avoid a SPOF. If App Server 1 crashes, the Load Balancer instantly reroutes traffic to App Server 2, ensuring zero downtime for the user.            
+    Avoiding Single Points of Failure (SPOF): By utilizing two or more App Servers behind a Load Balancer, we avoid a SPOF. If App Server 1 crashes, the Load Balancer instantly reroutes traffic to App Server 2, ensuring zero downtime for the user.              
